@@ -1,7 +1,7 @@
 # 1_warsztat_MLOps
 Materiały dotyczące warsztatów MLOps z dnia 29.03.2025 przeprowadzonych przez:
 1. [Poznański Horyzony Danych](https://www.meetup.com/pl-PL/poznanski-horyzont-danych/)
-2. [MLWorkout](https://ml-workout.pl/)
+2. [ML-Workout](https://ml-workout.pl/yt)
 3. [Kanał Studencki](https://kanalstudencki.pl/)
 
 # Opis
