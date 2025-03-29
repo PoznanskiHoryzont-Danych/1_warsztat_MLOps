@@ -8,15 +8,32 @@ from typing import List
 
 from fastapi import FastAPI
 from pydantic import BaseModel
+import random
 
 app = FastAPI()
 
-# zadanko - healthcheck endpoint
-# - ma zwracac {"status": "ok"} gdy się go wywoła
+# odpalenie
+# python -m fastapi dev model_serving_2.py
 
+class InputText(BaseModel):
+    texts: list[str]
 
-# zadanko - predict endpoint
-# - ma przyjmowac liste ciagow znakow (wejscie do modelu)
-# -> zwracac liste ciagow znakow (wynik predykcji modelu)
-#   input i output ma miec zdefiniowane typy pydantic
-#   na razie niech dopisuje " ml-workout" do kazdego ciagu znakow
+class ModelOutput(BaseModel):
+    results: list[str]
+
+@app.get("/healthcheck")
+def healthcheck():
+    return {"status": "ok"}
+
+@app.post("/predict")
+def predict(inputs: InputText) -> ModelOutput:
+    results = []
+    
+    for text in inputs.texts:
+        # Później tutaj wstawimy model
+        results.append(
+            random.choice(["pozytywny",
+                            "negatywny", 
+                            "neutralny"])
+        )
+    return ModelOutput(results=results)
